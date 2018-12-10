@@ -1,8 +1,11 @@
 import React from 'react'
 import Btn from 'components/Btn'
+const clicks = 0
+const step = 1
+const max = 20
 
 export default class ClickCounter extends React.Component {
-  state = { clicks: 0, step: 1, max: 20 }
+  state = { clicks, step, max }
 
   handleClicks = () => {
     this.setState({ clicks: this.state.clicks + this.state.step })
@@ -17,11 +20,10 @@ export default class ClickCounter extends React.Component {
   }
 
   handleReset = () => {
-    this.setState({ step: 1, max: 20, clicks: 0 })
+    this.setState({ clicks, step, max })
   }
 
   render() {
-    console.log(this.state.clicks)
     return (
       <div className="row justify-center p-t bg-tertiary section">
         <div className="card standard-border card-narrow shadow">
@@ -36,9 +38,7 @@ export default class ClickCounter extends React.Component {
             <div className="m-t">
               <span className="info-key">Clicks:</span>
               <span className="text-accent">
-                {this.state.clicks >= this.state.max && 'max reached'
-                  ? 'max reached!'
-                  : this.state.clicks}
+                {this.state.clicks >= this.state.max ? 'max reached!' : this.state.clicks}
               </span>
             </div>
 
