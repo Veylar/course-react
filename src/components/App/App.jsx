@@ -1,5 +1,6 @@
 import React from 'react'
 import SpinningLogo from 'components/SpinningLogo'
+import ClickCounter from '../ClickCounter/ClickCounter'
 
 export default class App extends React.Component {
 	render() {
@@ -9,6 +10,7 @@ export default class App extends React.Component {
 				<div className="row justify-center wrap">
 					<SpinningLogo />
 				</div>
+				<ClickCounter />
 			</div>
 		)
 	}
