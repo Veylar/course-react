@@ -48,7 +48,9 @@ export default class App extends React.Component {
 
   handleInvertAll = () => {
     this.setState({
-      octopuses: this.state.octopuses.map(octo => (octo.isInversed = !!octo.isInversed)),
+      octopuses: this.state.octopuses.map(octo => {
+        return { ...octo, isInversed: !octo.isInversed }
+      }),
     })
   }
 
