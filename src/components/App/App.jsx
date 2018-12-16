@@ -19,7 +19,7 @@ export default class App extends React.Component {
   }
 
   handleAdd = () => {
-    this.setState({ octopuses: [this.createOctopus()] })
+    this.setState({ octopuses: [...this.state.octopuses, this.createOctopus()] })
   }
 
   handleDelete = () => {
