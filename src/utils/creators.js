@@ -31,7 +31,7 @@ const attack = (enemy, damage) => {
 
 const enemies = [enemy1, enemy2, enemy3, enemy4]
 
-console.log('beaten enemies', enemies.map(enemy => attack(enemy, 50)))
+// console.log('beaten enemies', enemies.map(enemy => attack(enemy, 50)))
 
 const people = [
 	{
@@ -62,4 +62,4 @@ const womanize = anyArray => {
 	})
 }
 
-console.log(womanize(people))
+// console.log(womanize(people))

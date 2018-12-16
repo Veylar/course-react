@@ -58,7 +58,7 @@ export default class ClickCounter extends React.Component {
           </div>
 
           <Btn
-            disable={this.state.clicks >= this.state.max}
+            disabled={this.state.clicks >= this.state.max}
             onClick={this.handleClicks}
             className="m-t d-block"
           >
