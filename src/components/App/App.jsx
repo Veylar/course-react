@@ -15,13 +15,11 @@ export default class App extends React.Component {
   }
 
   createOctopus = () => {
-    return { isInversed: true }
+    return { isInversed: random() }
   }
 
   handleAdd = () => {
-    this.setState({
-      octopuses: [...this.state.octopuses, { isInversed: random() }],
-    })
+    this.setState({ octopuses: [this.createOctopus()] })
   }
 
   handleDelete = () => {
