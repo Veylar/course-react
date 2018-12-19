@@ -4,8 +4,17 @@ import ClickCounter from '../ClickCounter/ClickCounter'
 import 'utils/creators'
 import Btn from 'components/Btn'
 import { throws } from 'assert'
+const ponies = [
+  'https://vignette.wikia.nocookie.net/mlp/images/9/92/Canterlot_Castle_Pinkie_Pie_1.png/revision/latest?cb=20110915190145',
+  'https://vignette.wikia.nocookie.net/the-princess/images/e/e5/Mlp_fim_twilight_sparkle_happy_vector_3_by_luckreza8-db4ql0m.png/revision/latest?cb=20180411192543',
+  'https://vignette.wikia.nocookie.net/mlpfimroleplay/images/2/22/Rarity2.png/revision/latest?cb=20161221214903',
+]
 const random = () => {
   return Boolean(Math.round(Math.random()))
+}
+
+const randomImage = max => {
+  return Math.floor(Math.random() * max)
 }
 
 export default class App extends React.Component {
@@ -15,7 +24,7 @@ export default class App extends React.Component {
   }
 
   createOctopus = () => {
-    return { isInversed: random() }
+    return { isInversed: random(), image: ponies[randomImage(ponies.length)] }
   }
 
   handleAdd = () => {
@@ -102,7 +111,7 @@ export default class App extends React.Component {
         </div>
         <div className="row justify-center wrap">
           {this.state.octopuses.map((octopus, i) => (
-            <SpinningLogo inverse={octopus.isInversed} key={i} />
+            <SpinningLogo inverse={octopus.isInversed} image={octopus.image} key={i} />
           ))}
         </div>
         <ClickCounter />

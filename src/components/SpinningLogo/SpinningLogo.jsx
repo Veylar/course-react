@@ -9,7 +9,7 @@ export default class SpinningLogo extends React.Component {
 				className={`m-a ${styles.logo} ${
 					this.props.inverse ? styles.animationRotationInversed : styles.animationRotation
 				}`}
-				src="https://manychat.com/107994/assets/fonts/logo.51b.svg"
+				src={this.props.image}
 			/>
 		)
 	}
