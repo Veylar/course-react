@@ -1,7 +1,7 @@
 import React from 'react'
 import SpinningLogo from 'components/SpinningLogo'
 import ClickCounter from '../ClickCounter/ClickCounter'
-import 'utils/creators'
+import * as sortingHat from 'utils/sortingHat'
 import Btn from 'components/Btn'
 import { throws } from 'assert'
 const ponies = [
@@ -16,6 +16,18 @@ const random = () => {
 const randomImage = max => {
   return Math.floor(Math.random() * max)
 }
+
+const student = {
+  bloodlust: true,
+  deadly: true,
+  haveAnAxe: true,
+  god: true,
+  sexy: true,
+  cruel: true,
+  resourcefulness: true,
+}
+
+console.log(sortingHat.determineHouseAndGiveInfo(student))
 
 export default class App extends React.Component {
   constructor() {
