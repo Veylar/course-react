@@ -104,10 +104,8 @@ const gods = [
 	},
 ]
 
-const GodsNames = pantheon => {
-	if ((gods.pantheon = pantheon)) {
-		return gods.filter(godname => Object.values(gods.name))
-	}
+const getGodsNames = pantheon => {
+	return gods.filter(god => (gods[pantheon] = pantheon))
 }
 
 const knowPantheon = pantheon => {
@@ -116,7 +114,7 @@ const knowPantheon = pantheon => {
 	} and it is assumed to know ${
 		pantheonLord[pantheon]
 	} as the main god of the ${pantheon} followed by the God of Death, ${pantheonDeathGod[pantheon]} 
-    and other gods, such as ${GodsNames(pantheon)}.`
+    and other gods, such as ${getGodsNames(pantheon)}.`
 }
 
 console.log(knowPantheon(pantheons.GREEK))
