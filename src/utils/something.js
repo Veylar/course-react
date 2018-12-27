@@ -120,7 +120,7 @@ const knowPantheon = pantheon => {
 		pantheonRegion[pantheon]
 	} and it is assumed to know ${pantheonLord[pantheon]} as the main god of the ${pantheon} ${
 		pantheonsEmoji[pantheon]
-	} followed by the God of Death, ${pantheonDeathGod[pantheon]} 
+	} followed by the God of Death, ${pantheonDeathGod[pantheon]}
     and other gods, such as ${getGodsNames(pantheon)}.`
 }
 
@@ -130,12 +130,12 @@ const getGodsTraits = pantheon => {
 }
 
 const knowGods = pantheon => {
-	return `It is assumed that the gods from the ${pantheon} 
+	return `It is assumed that the gods from the ${pantheon}
 	are ${getGodsTraits(pantheon)} just as the gods listed above.`
 }
 
-const getLecture = pantheon => {
-	return `As many of you know, there are many deities in the world. Basically, they divided into pantheons mainly by their historical regions. 
+export const getLecture = pantheon => {
+	return `As many of you know, there are many deities in the world. Basically, they divided into pantheons mainly by their historical regions.
 	For example, ${knowPantheon(pantheon)} ${knowGods(pantheon)}`
 }
 
@@ -153,7 +153,7 @@ const someGod = {
 	wise: true,
 }
 
-const findPantheon = godTraits => {
+export const findPantheon = godTraits => {
 	const pantheonMatches = Object.values(pantheons).map(pantheon => {
 		return {
 			matchingTraits: getMatchingTraits(godTraits, pantheon),

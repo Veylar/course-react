@@ -2,6 +2,7 @@ import React from 'react'
 import * as sortingHat from 'utils/sortingHat'
 import * as something from 'utils/something'
 import SpinningLogoList from 'components/SpinningLogoList'
+import { getLecture, findPantheon } from '../../utils/something'
 
 const someGod = {
 	frozen: true,
@@ -11,6 +12,8 @@ const someGod = {
 	halfAnimal: true,
 	wise: true,
 }
+
+console.log(findPantheon(someGod))
 
 export default class App extends React.Component {
 	render() {
