@@ -26,7 +26,7 @@ const pantheonDeathGod = {
 	[pantheons.AZTEC]: 'Mictlantecuhtli',
 }
 
-const pantheonTraits = {
+const pantheonTypicalTraits = {
 	[pantheons.GREEK]: {
 		luxurious: true,
 		proud: true,
@@ -105,11 +105,11 @@ const gods = [
 ]
 
 const getGodsNames = pantheon => {
-	return gods.filter(god => (gods[pantheon] = pantheon))
+	return gods.filter(god => god.pantheon === pantheon).map(god => god.name)
 }
 
 const knowPantheon = pantheon => {
-	return `The ${pantheon} was founded in the ${
+	return `the ${pantheon} was founded in the ${
 		pantheonRegion[pantheon]
 	} and it is assumed to know ${
 		pantheonLord[pantheon]
@@ -117,4 +117,17 @@ const knowPantheon = pantheon => {
     and other gods, such as ${getGodsNames(pantheon)}.`
 }
 
-console.log(knowPantheon(pantheons.GREEK))
+const getGodsTraits = pantheon => {
+	const pantheonTraits = pantheonTypicalTraits[pantheon]
+	return Object.keys(pantheonTraits)
+}
+
+const knowGods = pantheon => {
+	return `It is assumed that the gods from the ${pantheon} 
+	are ${getGodsTraits(pantheon)} just as ${getGodsNames(pantheon)}.`
+}
+
+const getLecture = pantheon => {
+	return `As many of you know, there are many deities in the world. Basically, they divided into pantheons mainly by their historical regions. 
+	For example, ${knowPantheon(pantheon)} ${knowGods(pantheon)}`
+}
