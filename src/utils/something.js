@@ -134,15 +134,16 @@ const getLecture = pantheon => {
 
 const getMatchingTraits = (godTraits, pantheon) => {
 	const pantheonTraits = pantheonTypicalTraits[pantheon]
-	return Object.keys(pantheonTraits).filter(god => pantheon[god] !== godTraits[god])
+	return Object.keys(godTraits).filter(god => pantheonTraits[god] === godTraits[god])
 }
 
 const someGod = {
-	gloomy: true,
-	deadly: true,
 	frozen: true,
 	probablyBird: true,
 	bloody: true,
+	dressedUp: true,
+	halfAnimal: true,
+	wise: true,
 }
 
 const findPantheon = godTraits => {
@@ -154,7 +155,7 @@ const findPantheon = godTraits => {
 	})
 
 	const bestMatch = pantheonMatches.find(pt => pt.matchingTraits.length >= 3)
-	return bestMatch ? bestMatch.house : null
+	return bestMatch ? bestMatch.pantheon : 'This god is outside any pantheon we included.'
 }
 
 console.log(findPantheon(someGod))
