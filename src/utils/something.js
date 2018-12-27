@@ -164,5 +164,3 @@ const findPantheon = godTraits => {
 	const bestMatch = pantheonMatches.find(pt => pt.matchingTraits.length >= 3)
 	return bestMatch ? bestMatch.pantheon : 'This god is outside any pantheon we included.'
 }
-
-console.log(getLecture(pantheons.AZTEC))
