@@ -104,6 +104,13 @@ const gods = [
 	},
 ]
 
+const pantheonsEmoji = {
+	[pantheons.GREEK]: '🥦',
+	[pantheons.NORSE]: '❄️',
+	[pantheons.EGYPTIAN]: '🛸',
+	[pantheons.AZTEC]: '🧛',
+}
+
 const getGodsNames = pantheon => {
 	return gods.filter(god => god.pantheon === pantheon).map(god => god.name)
 }
@@ -111,9 +118,9 @@ const getGodsNames = pantheon => {
 const knowPantheon = pantheon => {
 	return `the ${pantheon} was founded in the ${
 		pantheonRegion[pantheon]
-	} and it is assumed to know ${
-		pantheonLord[pantheon]
-	} as the main god of the ${pantheon} followed by the God of Death, ${pantheonDeathGod[pantheon]} 
+	} and it is assumed to know ${pantheonLord[pantheon]} as the main god of the ${pantheon} ${
+		pantheonsEmoji[pantheon]
+	} followed by the God of Death, ${pantheonDeathGod[pantheon]} 
     and other gods, such as ${getGodsNames(pantheon)}.`
 }
 
@@ -124,7 +131,7 @@ const getGodsTraits = pantheon => {
 
 const knowGods = pantheon => {
 	return `It is assumed that the gods from the ${pantheon} 
-	are ${getGodsTraits(pantheon)} just as ${getGodsNames(pantheon)}.`
+	are ${getGodsTraits(pantheon)} just as the gods listed above.`
 }
 
 const getLecture = pantheon => {
@@ -158,4 +165,4 @@ const findPantheon = godTraits => {
 	return bestMatch ? bestMatch.pantheon : 'This god is outside any pantheon we included.'
 }
 
-console.log(findPantheon(someGod))
+console.log(getLecture(pantheons.AZTEC))
