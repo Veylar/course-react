@@ -3,17 +3,14 @@ import * as sortingHat from 'utils/sortingHat'
 import * as something from 'utils/something'
 import SpinningLogoList from 'components/SpinningLogoList'
 
-const student = {
-	bloodlust: true,
-	deadly: true,
-	haveAnAxe: true,
-	god: true,
-	sexy: true,
-	cruel: true,
-	resourcefulness: true,
+const someGod = {
+	frozen: true,
+	probablyBird: true,
+	bloody: true,
+	dressedUp: true,
+	halfAnimal: true,
+	wise: true,
 }
-
-console.log(sortingHat.determineHouseAndGiveInfo(student))
 
 export default class App extends React.Component {
 	render() {
