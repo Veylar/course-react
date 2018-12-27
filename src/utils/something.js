@@ -131,3 +131,30 @@ const getLecture = pantheon => {
 	return `As many of you know, there are many deities in the world. Basically, they divided into pantheons mainly by their historical regions. 
 	For example, ${knowPantheon(pantheon)} ${knowGods(pantheon)}`
 }
+
+const getMatchingTraits = (godTraits, pantheon) => {
+	const pantheonTraits = pantheonTypicalTraits[pantheon]
+	return Object.keys(pantheonTraits).filter(god => pantheon[god] !== godTraits[god])
+}
+
+const someGod = {
+	gloomy: true,
+	deadly: true,
+	frozen: true,
+	probablyBird: true,
+	bloody: true,
+}
+
+const findPantheon = godTraits => {
+	const pantheonMatches = Object.values(pantheons).map(pantheon => {
+		return {
+			matchingTraits: getMatchingTraits(godTraits, pantheon),
+			pantheon: pantheon,
+		}
+	})
+
+	const bestMatch = pantheonMatches.find(pt => pt.matchingTraits.length >= 3)
+	return bestMatch ? bestMatch.house : null
+}
+
+console.log(findPantheon(someGod))
